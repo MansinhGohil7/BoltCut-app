@@ -13,7 +13,7 @@ function App() {
   const [videoUrl, setVideoUrl] = useState(null);
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
-  
+
   const [isProcessing, setIsProcessing] = useState(false);
   const [progress, setProgress] = useState(0);
   const [resultUrl, setResultUrl] = useState(null);
@@ -33,7 +33,7 @@ function App() {
     // Detect iOS and standalone
     const isIos = /ipad|iphone|ipod/.test(window.navigator.userAgent.toLowerCase());
     const isInStandaloneMode = ('standalone' in window.navigator) && window.navigator.standalone;
-    
+
     if (isIos && !isInStandaloneMode) {
       setIsIosPrompt(true);
     }
@@ -87,7 +87,7 @@ function App() {
     // Parses HH:MM:SS or MM:SS into seconds
     const parts = timeStr.split(':').map(Number);
     if (parts.some(isNaN)) return null;
-    
+
     if (parts.length === 3) {
       return parts[0] * 3600 + parts[1] * 60 + parts[2];
     } else if (parts.length === 2) {
@@ -140,7 +140,7 @@ function App() {
 
       <div className="container mx-auto px-4 pt-24 pb-12 relative z-10 max-w-5xl">
         <header className="mb-12 text-center flex flex-col items-center relative">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-col items-center justify-center"
@@ -150,7 +150,7 @@ function App() {
               BOLT CUT
             </h1>
           </motion.div>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.1 }}
@@ -158,7 +158,7 @@ function App() {
           >
             BROWSER-BASED CLIPPING. ORIGINAL QUALITY. NO SERVERS.
           </motion.p>
-          
+
           <AnimatePresence>
             {(deferredPrompt || isIosPrompt) && (
               <motion.button
@@ -195,21 +195,21 @@ function App() {
           )}
 
           {videoUrl && !resultUrl && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="space-y-8"
             >
               <div className="flex justify-between items-center px-2">
                 <h2 className="text-xl font-semibold">Preview & Trim</h2>
-                <button 
+                <button
                   onClick={handleReset}
                   className="text-sm text-zinc-400 hover:text-white transition-colors"
                 >
                   Change Video
                 </button>
               </div>
-              
+
               <div className="grid grid-cols-1 gap-8">
                 <VideoPlayer videoUrl={videoUrl} />
                 <TimeControls
