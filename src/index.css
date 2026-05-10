@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-zinc-900/50 backdrop-blur-md border border-zinc-800 shadow-xl;
+  }
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #09090b;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
