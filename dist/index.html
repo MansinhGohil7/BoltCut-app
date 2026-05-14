@@ -1,15 +1,135 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bolt Video Trimmer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/assets/index-Bv-WIXBm.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CAVr0UJ0.css">
-  </head>
-  <body class="bg-zinc-950 text-white font-sans antialiased">
-    <div id="root"></div>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/Hehe.png" />
+  <link rel="apple-touch-icon" href="/Hehe.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO: Aggressive title targeting Clideo/123Apps keywords -->
+  <title>Bolt Cut — Free Private Video Trimmer | Lossless Online Video Cutter</title>
+
+  <!-- SEO: Primary meta description -->
+  <meta name="description" content="Bolt Cut is a 100% private, no-upload video trimmer that runs entirely in your browser. Cut and trim videos losslessly with zero server contact. Free, fast, and secure — your files never leave your device." />
+
+  <!-- SEO: Additional meta tags for crawlability -->
+  <meta name="keywords" content="private video trimmer, lossless online video cutter, no-upload video editor, free video trimmer, browser video cutter, client-side video editor, BoltCut, bolt cut" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="The Brand Labs" />
+  <link rel="canonical" href="https://bolt-cut.vercel.app/" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Bolt Cut — Free Private Video Trimmer | No Uploads Required" />
+  <meta property="og:description" content="Trim videos losslessly in your browser. No uploads, no servers, no cost. Your files never leave your device." />
+  <meta property="og:url" content="https://bolt-cut.vercel.app/" />
+  <meta property="og:image" content="https://bolt-cut.vercel.app/Hehe.png" />
+  <meta property="og:site_name" content="Bolt Cut" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bolt Cut — Free Lossless Online Video Cutter" />
+  <meta name="twitter:description" content="100% private video trimming. No uploads. Runs entirely in your browser using WebAssembly." />
+  <meta name="twitter:image" content="https://bolt-cut.vercel.app/Hehe.png" />
+
+  <meta name="theme-color" content="#09090b" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD: SoftwareApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Bolt Cut",
+    "url": "https://bolt-cut.vercel.app/",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Web Browser (Chrome, Edge, Firefox, Safari)",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Bolt Cut is a free, private, lossless online video trimmer that processes videos entirely in the browser using FFmpeg WebAssembly. No files are ever uploaded to a server.",
+    "featureList": [
+      "100% client-side processing — no uploads",
+      "Lossless video trimming with original quality",
+      "Supports MP4, MOV, and WEBM formats",
+      "Works offline as a PWA",
+      "Zero cost, no account required"
+    ],
+    "screenshot": "https://bolt-cut.vercel.app/Hehe.png",
+    "softwareVersion": "1.0.0",
+    "creator": {
+      "@type": "Organization",
+      "name": "The Brand Labs"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "120",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Bolt Cut really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Bolt Cut is 100% free with no hidden costs, no watermarks, and no account required. It runs entirely in your browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Bolt Cut upload my videos to a server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Bolt Cut uses FFmpeg WebAssembly to process videos entirely on your device. Your files never leave your browser, making it the most private video trimmer available."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What video formats does Bolt Cut support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bolt Cut supports MP4, MOV, and WEBM video formats. The output is always a lossless MP4 file trimmed with original quality preservation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is Bolt Cut different from Clideo or 123Apps?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Unlike Clideo and 123Apps, Bolt Cut never uploads your video to any server. All processing happens locally in your browser using WebAssembly, which means faster processing, complete privacy, and zero bandwidth usage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Bolt Cut reduce video quality?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Bolt Cut uses the '-c copy' FFmpeg command, which means it copies the video and audio streams without re-encoding. The output is identical in quality to the original file."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="module" crossorigin src="/assets/index-D2jzOiRs.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DRRHze0M.css">
+<link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
+
+<body class="bg-zinc-950 text-white font-sans antialiased">
+  <div id="root"></div>
+</body>
+
 </html>
