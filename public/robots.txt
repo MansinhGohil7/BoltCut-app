@@ -1,0 +1,9 @@
+# Bolt Cut — Robots.txt
+# Allow all crawlers full access to the landing page.
+
+User-agent: *
+Allow: /
+Disallow: /assets/
+Disallow: /node_modules/
+
+Sitemap: https://bolt-cut.vercel.app/sitemap.xml

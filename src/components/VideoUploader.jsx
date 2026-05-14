@@ -70,6 +70,7 @@ export const VideoUploader = ({ onUpload }) => {
           type="file"
           accept="video/*"
           onChange={handleChange}
+          aria-label="Upload video file for private lossless trimming"
           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
         />
         
@@ -87,7 +88,7 @@ export const VideoUploader = ({ onUpload }) => {
               {isDragging ? 'Drop video here' : 'Upload your video'}
             </h3>
             <p className="text-sm text-zinc-400">
-              Drag and drop, or click to browse
+              Drag and drop, or click to browse. Your file stays on your device.
             </p>
           </div>
           

@@ -19,6 +19,7 @@ export const VideoPlayer = ({ videoUrl }) => {
       <video
         ref={videoRef}
         controls
+        aria-label="Source video preview for trimming"
         className="w-full h-auto max-h-[60vh] object-contain bg-black"
         src={videoUrl}
       >

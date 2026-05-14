@@ -9,9 +9,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: 'Bolt Cut',
+        name: 'Bolt Cut — Private Video Trimmer',
         short_name: 'Bolt Cut',
-        description: 'Browser-based video utility to extract clips in original quality.',
+        description: 'Free private video trimmer — lossless online video cutter with no uploads. Your files never leave your device.',
         theme_color: '#09090b',
         background_color: '#09090b',
         display: 'standalone',

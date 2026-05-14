@@ -54,16 +54,11 @@ function App() {
   };
 
   useEffect(() => {
-    // Preload ffmpeg on mount
-    loadFFmpeg().then(ffmpeg => {
-      setFfmpegInstance(ffmpeg);
-    }).catch(err => {
-      console.error("Failed to load FFmpeg:", err);
-      setError("Failed to load video processing engine. Please try refreshing.");
-    });
+    // FFmpeg is now lazy-loaded when a file is selected (see handleUpload)
+    // This keeps First Contentful Paint fast by deferring the ~30MB WASM fetch.
   }, []);
 
-  const handleUpload = (uploadedFile) => {
+  const handleUpload = async (uploadedFile) => {
     setFile(uploadedFile);
     setVideoUrl(URL.createObjectURL(uploadedFile));
     setResultUrl(null);
@@ -71,6 +66,17 @@ function App() {
     // Default values
     setStartTime('00:00:00');
     setEndTime('00:00:10');
+
+    // Lazy-load FFmpeg only when user actually selects a file
+    if (!ffmpegInstance) {
+      try {
+        const ffmpeg = await loadFFmpeg();
+        setFfmpegInstance(ffmpeg);
+      } catch (err) {
+        console.error("Failed to load FFmpeg:", err);
+        setError("Failed to load video processing engine. Please try refreshing.");
+      }
+    }
   };
 
   const handleReset = () => {
@@ -166,6 +172,7 @@ function App() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 onClick={deferredPrompt ? handleInstallClick : () => alert('To install, tap the Share icon at the bottom of Safari and select "Add to Home Screen".')}
+                aria-label={deferredPrompt ? 'Install Bolt Cut app' : 'Add Bolt Cut to home screen'}
                 className="absolute top-0 right-0 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-xs font-bold uppercase tracking-wider text-white rounded-full transition-colors flex items-center gap-2 shadow-lg"
               >
                 <Download className="w-4 h-4 text-accent" />
@@ -190,6 +197,8 @@ function App() {
         </AnimatePresence>
 
         <main className="space-y-8">
+          {/* SEO: Visually hidden secondary heading for search engine semantic hierarchy */}
+          <h2 className="sr-only">Free Private Lossless Video Trimmer — No Upload Required</h2>
           {!videoUrl && !resultUrl && (
             <VideoUploader onUpload={handleUpload} />
           )}
@@ -204,6 +213,7 @@ function App() {
                 <h2 className="text-xl font-semibold">Preview & Trim</h2>
                 <button
                   onClick={handleReset}
+                  aria-label="Change video file for trimming"
                   className="text-sm text-zinc-400 hover:text-white transition-colors"
                 >
                   Change Video

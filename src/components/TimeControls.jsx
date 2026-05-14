@@ -17,6 +17,7 @@ export const TimeControls = ({ startTime, setStartTime, endTime, setEndTime, onE
             value={startTime}
             onChange={(e) => setStartTime(e.target.value)}
             placeholder="00:00:00"
+            aria-label="Video trim start time in HH:MM:SS format"
             className="w-full bg-zinc-900/80 border border-zinc-700/50 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all font-mono"
             disabled={disabled}
           />
@@ -29,6 +30,7 @@ export const TimeControls = ({ startTime, setStartTime, endTime, setEndTime, onE
             value={endTime}
             onChange={(e) => setEndTime(e.target.value)}
             placeholder="00:00:10"
+            aria-label="Video trim end time in HH:MM:SS format"
             className="w-full bg-zinc-900/80 border border-zinc-700/50 rounded-xl px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all font-mono"
             disabled={disabled}
           />
@@ -38,6 +40,7 @@ export const TimeControls = ({ startTime, setStartTime, endTime, setEndTime, onE
           <button
             onClick={onExtract}
             disabled={disabled}
+            aria-label="Extract lossless video clip from selected time range"
             className="w-full md:w-auto min-h-[56px] px-8 py-4 bg-accent hover:bg-pink-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(236,72,153,0.4)] hover:shadow-[0_0_30px_rgba(236,72,153,0.6)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 group"
           >
             <Scissors className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
